@@ -1,6 +1,30 @@
 # Launch Checklist
 
-## Fastest Launch Path
+## Current Launch State
+
+The site has been published to GitHub:
+
+- Repository: `https://github.com/gadierrrr/tariffsfreecomponents.com`
+- Pages source: `main` branch, repository root
+- Custom domain configured in GitHub Pages: `tariffsfreecomponents.com`
+- Current blocker: DNS still points to Namecheap forwarding/parking records, not GitHub Pages.
+
+## DNS Records To Set
+
+At Namecheap, remove URL forwarding/parking records for the apex and `www`, then set:
+
+```text
+Type   Host   Value                  TTL
+A      @      185.199.108.153        Automatic
+A      @      185.199.109.153        Automatic
+A      @      185.199.110.153        Automatic
+A      @      185.199.111.153        Automatic
+CNAME  www    gadierrrr.github.io    Automatic
+```
+
+After DNS resolves, return to GitHub Pages settings and enable "Enforce HTTPS".
+
+## Alternate Upload Path
 
 Use Netlify for the first launch because the static forms are already marked up for Netlify Forms.
 
