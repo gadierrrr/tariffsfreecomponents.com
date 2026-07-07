@@ -8,6 +8,7 @@ The site has been published to GitHub:
 - Pages source: `main` branch, repository root
 - Custom domain configured in GitHub Pages: `tariffsfreecomponents.com`
 - Current blocker: DNS still points to Namecheap forwarding/parking records, not GitHub Pages.
+- RFQ and supplier forms open an email draft to `hello@tariffsfreecomponents.com` on GitHub Pages.
 
 ## DNS Records To Set
 
@@ -23,6 +24,16 @@ CNAME  www    gadierrrr.github.io    Automatic
 ```
 
 After DNS resolves, return to GitHub Pages settings and enable "Enforce HTTPS".
+
+## Email Setup
+
+Create or forward this mailbox before sending buyer/supplier traffic:
+
+```text
+hello@tariffsfreecomponents.com
+```
+
+The GitHub Pages launch uses mail draft forms so the site can collect RFQ and supplier interest without a backend. If the site is later moved to Netlify, the existing form attributes can be used for hosted form capture.
 
 ## Alternate Upload Path
 
@@ -48,6 +59,7 @@ Verify these after deployment:
 - Search for `connectors` returns relevant suppliers
 - Buyer RFQ form submits and lands on `/thanks.html`
 - Supplier listing form submits and lands on `/thanks.html`
+- On GitHub Pages, buyer and supplier forms open addressed email drafts
 - `/robots.txt` and `/sitemap.xml` return HTTP 200
 - `/privacy.html`, `/terms.html`, and `/404.html` render
 - Browser console has no JavaScript errors

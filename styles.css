@@ -426,6 +426,18 @@ a:focus-visible {
   line-height: 1.45;
 }
 
+.form-notice {
+  margin-top: 18px;
+  border: 1px solid rgba(12, 118, 107, 0.3);
+  border-radius: 6px;
+  padding: 12px 13px;
+  background: rgba(12, 118, 107, 0.08);
+  color: var(--teal-dark);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
 .marketplace-layout {
   padding: 22px 0 68px;
 }

@@ -1,5 +1,6 @@
 const DATA_URL = "data/suppliers.json";
 const INITIAL_VISIBLE_COUNT = 18;
+const CONTACT_EMAIL = "hello@tariffsfreecomponents.com";
 
 let suppliers = [];
 let visibleCount = INITIAL_VISIBLE_COUNT;
@@ -23,6 +24,7 @@ const modalSupplierId = document.querySelector("#modalSupplierId");
 const closeModal = document.querySelector("#closeModal");
 const rfqForm = document.querySelector("#rfqForm");
 const supplierForm = document.querySelector("#supplierForm");
+const formNotice = document.querySelector("#formNotice");
 const stats = {
   total: document.querySelector("#statTotalSuppliers"),
   priority: document.querySelector("#statPrioritySuppliers"),
@@ -247,6 +249,59 @@ function analyzeBomLines() {
   `;
 }
 
+function getFormValue(form, name) {
+  return form.querySelector(`[name="${name}"]`)?.value.trim() || "";
+}
+
+function openMailDraft(subject, lines) {
+  const body = lines.filter(Boolean).join("\n");
+  window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+function showFormNotice(message) {
+  if (!formNotice) return;
+  formNotice.textContent = message;
+  formNotice.hidden = false;
+}
+
+function handleRfqSubmit(event) {
+  event.preventDefault();
+  const supplier = activeRfqSupplier;
+  const email = getFormValue(rfqForm, "email");
+  const annualVolume = getFormValue(rfqForm, "annual_volume");
+  const need = getFormValue(rfqForm, "need");
+  const supplierLine = supplier ? `${supplier.supplier} (${supplier.id})` : modalSupplierId.value || "Supplier selected from marketplace";
+
+  openMailDraft("Buyer RFQ request", [
+    "Buyer RFQ request",
+    `Supplier: ${supplierLine}`,
+    `Buyer email: ${email}`,
+    `Annual volume: ${annualVolume || "Not provided"}`,
+    "",
+    "Need:",
+    need,
+  ]);
+
+  showFormNotice("Email draft opened. Send it to complete the RFQ request.");
+  closeRfqModal();
+}
+
+function handleSupplierSubmit(event) {
+  event.preventDefault();
+  const email = getFormValue(supplierForm, "email");
+  const category = getFormValue(supplierForm, "category");
+
+  openMailDraft("Supplier listing application", [
+    "Supplier listing application",
+    `Supplier email: ${email}`,
+    `Component category: ${category}`,
+    "",
+    "Please send product families, country-of-origin documentation availability, HTS families if known, certifications, MOQ, and lead time.",
+  ]);
+
+  showFormNotice("Email draft opened. Send it to complete the supplier listing application.");
+}
+
 async function loadSuppliers() {
   listingGrid.innerHTML = `
     <article class="listing-card">
@@ -307,16 +362,8 @@ modal.addEventListener("click", (event) => {
   if (event.target === modal) closeRfqModal();
 });
 
-rfqForm.addEventListener("submit", () => {
-  if (activeRfqSupplier) {
-    modalSupplierId.value = activeRfqSupplier.id;
-  }
-});
-
-supplierForm.addEventListener("submit", () => {
-  const submitButton = supplierForm.querySelector("button[type='submit']");
-  submitButton.textContent = "Submitting...";
-});
+rfqForm.addEventListener("submit", handleRfqSubmit);
+supplierForm.addEventListener("submit", handleSupplierSubmit);
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && modal.classList.contains("open")) {
