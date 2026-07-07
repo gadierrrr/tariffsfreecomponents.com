@@ -10,6 +10,11 @@ The site has been published to GitHub:
 - Current blocker: DNS still points to Namecheap forwarding/parking records, not GitHub Pages.
 - RFQ and supplier forms open an email draft to `hello@tariffsfreecomponents.com` on GitHub Pages.
 
+Temporary live preview while DNS is being fixed:
+
+- `https://gadierrrr.github.io/tariffsfreecomponents-preview/`
+- Preview repository: `https://github.com/gadierrrr/tariffsfreecomponents-preview`
+
 ## DNS Records To Set
 
 At Namecheap, remove URL forwarding/parking records for the apex and `www`, then set:
