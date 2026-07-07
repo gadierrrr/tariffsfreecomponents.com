@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="TariffsFreeComponents.com helps procurement teams discover supplier candidates for documented-origin, North American, domestic, and alternative-source components."
+    />
+    <meta name="theme-color" content="#17201f" />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://tariffsfreecomponents.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tariffsfreecomponents.com/" />
+    <meta property="og:title" content="TariffsFreeComponents.com | Tariff-advantaged sourcing marketplace" />
+    <meta
+      property="og:description"
+      content="Discover supplier candidates by component category, HTS family, country focus, verification status, and sourcing profile."
+    />
+    <meta property="og:image" content="https://tariffsfreecomponents.com/assets/marketplace-components.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>TariffsFreeComponents.com | Tariff-advantaged sourcing marketplace</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,600;6..72,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "TariffsFreeComponents.com",
+        "url": "https://tariffsfreecomponents.com/",
+        "description": "A sourcing marketplace for procurement teams evaluating documented-origin, North American, domestic, and alternative-source components."
+      }
+    </script>
+  </head>
+  <body>
+    <header class="shell site-header" aria-label="Main navigation">
+      <a class="brand" href="#" aria-label="TariffsFreeComponents.com home">
+        <span class="brand-mark">TFC</span>
+        <span>
+          <strong>TariffsFreeComponents.com</strong>
+          <small>Tariff-advantaged sourcing</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Marketplace sections">
+        <a href="#market">Market</a>
+        <a href="#verify">Verify</a>
+        <a href="#sell">For suppliers</a>
+      </nav>
+      <a class="header-action" href="#rfq">Start RFQ</a>
+    </header>
+
+    <main>
+      <section class="hero-shell">
+        <div class="hero-media" aria-hidden="true">
+          <img src="assets/marketplace-components.png" alt="" />
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="shell hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Built for procurement teams under tariff pressure</p>
+            <h1>Find supplier candidates for lower-duty sourcing decisions.</h1>
+            <p class="hero-lede">
+              Search candidate suppliers by component type, HTS family, country
+              focus, verification status, lead score, and RFQ readiness.
+            </p>
+            <div class="hero-actions" aria-label="Primary actions">
+              <a class="primary-button" href="#market">Search marketplace</a>
+              <a class="secondary-button" href="#sell">List components</a>
+            </div>
+          </div>
+
+          <aside class="terminal-card" aria-label="Tariff exposure snapshot">
+            <div class="terminal-head">
+              <span>Launch database</span>
+              <span class="live-dot">Live data</span>
+            </div>
+            <div class="risk-line">
+              <span>Supplier candidates</span>
+              <strong><span id="statTotalSuppliers">60</span></strong>
+            </div>
+            <div class="risk-line">
+              <span>Priority outreach targets</span>
+              <strong><span id="statPrioritySuppliers">18</span></strong>
+            </div>
+            <div class="risk-line">
+              <span>Documented candidates</span>
+              <strong><span id="statDocumentedSuppliers">1</span></strong>
+            </div>
+            <div class="tariff-strip" aria-hidden="true">
+              <span style="--height: 40%"></span>
+              <span style="--height: 72%"></span>
+              <span style="--height: 36%"></span>
+              <span style="--height: 88%"></span>
+              <span style="--height: 54%"></span>
+              <span style="--height: 62%"></span>
+              <span style="--height: 30%"></span>
+              <span style="--height: 76%"></span>
+            </div>
+            <p>
+              Candidate data is for sourcing and screening. Importers confirm
+              classification, origin, and duty treatment with their broker or counsel.
+            </p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="shell product-grid" id="market">
+        <div class="panel search-panel">
+          <div class="panel-title-row">
+            <div>
+              <p class="eyebrow">Buyer terminal</p>
+              <h2>Supplier search</h2>
+            </div>
+            <button class="ghost-button" id="clearFilters" type="button">Reset</button>
+          </div>
+
+          <label class="field">
+            <span>Search component, supplier, or HTS family</span>
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="connectors, 8536, fasteners, PCB assemblies..."
+              autocomplete="off"
+            />
+          </label>
+
+          <div class="filter-grid" aria-label="Marketplace filters">
+            <label class="field">
+              <span>Industry</span>
+              <select id="industryFilter">
+                <option value="all">All industries</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Industrial">Industrial</option>
+                <option value="Electrical">Electrical</option>
+                <option value="HVAC">HVAC</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Origin</span>
+              <select id="originFilter">
+                <option value="all">Any origin</option>
+                <option value="United States">United States</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Canada">Canada</option>
+                <option value="Germany">Germany</option>
+                <option value="Switzerland">Switzerland</option>
+                <option value="Vietnam">Vietnam</option>
+                <option value="Malaysia">Malaysia</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Verification</span>
+              <select id="verifyFilter">
+                <option value="all">Any tier</option>
+                <option value="Documented candidate">Documented candidate</option>
+                <option value="Unverified candidate">Unverified candidate</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Duty profile</span>
+              <select id="dutyFilter">
+                <option value="all">Any profile</option>
+                <option value="North America source">North America source</option>
+                <option value="US manufacturing candidate">US manufacturing candidate</option>
+                <option value="Alternative source">Alternative source</option>
+                <option value="Verification needed">Verification needed</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <aside class="panel rfq-panel" id="rfq">
+          <p class="eyebrow">BOM matcher</p>
+          <h2>Turn tariff exposure into RFQs</h2>
+          <p>
+            Paste a bill of materials or part family list. The marketplace
+            returns likely HTS families, supplier candidates, and the evidence
+            to request before relying on tariff treatment.
+          </p>
+          <label class="field">
+            <span>BOM sample</span>
+            <textarea
+              id="bomInput"
+              rows="7"
+              placeholder="M12 waterproof connector, 5-pin, 5k units&#10;DIN rail power supply, 24V, 1k units&#10;Aluminum valve body, CNC, 12k units"
+            ></textarea>
+          </label>
+          <button class="primary-button full-width" id="analyzeBom" type="button">Analyze BOM</button>
+          <div class="bom-result" id="bomResult" aria-live="polite">
+            Add at least two lines to generate a sourcing brief.
+          </div>
+        </aside>
+      </section>
+
+      <section class="shell marketplace-layout">
+        <div class="results-head">
+          <div>
+            <p class="eyebrow">Launch marketplace</p>
+            <h2><span id="resultCount">0</span> supplier matches</h2>
+          </div>
+          <div class="sort-note">Priority targets surface first. Verification status is shown separately from sourcing fit.</div>
+        </div>
+
+        <div class="listing-grid" id="listingGrid" aria-live="polite"></div>
+        <button class="secondary-button load-more" id="loadMore" type="button" hidden>Show more suppliers</button>
+      </section>
+
+      <section class="proof-band" id="verify">
+        <div class="shell proof-grid">
+          <div>
+            <p class="eyebrow">Trust model</p>
+            <h2>Sell confidence, not vague tariff claims.</h2>
+            <p>
+              Each listing separates candidate sourcing fit from verified
+              compliance evidence. That gives buyers a fast shortlist while
+              keeping final classification and origin decisions where they belong.
+            </p>
+          </div>
+          <div class="verification-steps">
+            <article>
+              <span>01</span>
+              <h3>Candidate</h3>
+              <p>Supplier appears relevant by category, country focus, HTS family, or buyer fit.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Documented</h3>
+              <p>Supplier provides origin support, manufacturing location, HTS basis, or certifications.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Reviewed</h3>
+              <p>A broker or trade specialist reviews product-level listing data for buyer screening.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="shell supplier-section" id="sell">
+        <div class="supplier-copy">
+          <p class="eyebrow">Supplier revenue model</p>
+          <h2>Premium placement tied to buyer intent.</h2>
+          <p>
+            Suppliers pay for visibility where procurement teams are already
+            searching: category pages, HTS families, alternative-source queries,
+            RFQ bundles, and verified profile badges.
+          </p>
+          <form
+            class="supplier-form"
+            id="supplierForm"
+            name="supplier-interest"
+            method="POST"
+            action="/thanks.html"
+            data-netlify="true"
+            netlify-honeypot="company_url"
+          >
+            <input type="hidden" name="form-name" value="supplier-interest" />
+            <label class="field honey-field">
+              <span>Company URL</span>
+              <input name="company_url" tabindex="-1" autocomplete="off" />
+            </label>
+            <label class="field">
+              <span>Work email</span>
+              <input name="email" type="email" placeholder="supplier@company.com" required />
+            </label>
+            <label class="field">
+              <span>Component category</span>
+              <input name="category" type="text" placeholder="cable assemblies, fasteners, machined parts..." required />
+            </label>
+            <button class="primary-button full-width" type="submit">Apply for supplier listing</button>
+          </form>
+        </div>
+        <div class="pricing-grid">
+          <article class="price-card">
+            <h3>Basic</h3>
+            <strong>Free</strong>
+            <p>Public listing, specs, origin claim, and inquiry form.</p>
+          </article>
+          <article class="price-card featured">
+            <div class="sponsor-label">Best launch plan</div>
+            <h3>Verified</h3>
+            <strong>$299/mo</strong>
+            <p>Document badge, category boost, lead analytics, and RFQ matching.</p>
+          </article>
+          <article class="price-card">
+            <h3>Premium</h3>
+            <strong>$899/mo</strong>
+            <p>Sponsored HTS pages, competitor insights, and priority RFQ placement.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="shell site-footer">
+      <p>TariffsFreeComponents.com</p>
+      <p>
+        Marketplace data is for sourcing and screening. Importers remain
+        responsible for classification, valuation, origin, and duty treatment.
+      </p>
+      <p class="footer-links"><a href="privacy.html">Privacy</a> <a href="terms.html">Terms</a></p>
+    </footer>
+
+    <div class="modal" id="rfqModal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
+      <div class="modal-panel">
+        <button class="modal-close" id="closeModal" type="button" aria-label="Close RFQ form">x</button>
+        <p class="eyebrow">RFQ request</p>
+        <h2 id="modalTitle">Request quote</h2>
+        <p id="modalSupplier">Send a sourcing request to this supplier.</p>
+        <form
+          class="modal-form"
+          id="rfqForm"
+          name="buyer-rfq"
+          method="POST"
+          action="/thanks.html"
+          data-netlify="true"
+          netlify-honeypot="website"
+        >
+          <input type="hidden" name="form-name" value="buyer-rfq" />
+          <input type="hidden" name="supplier_id" id="modalSupplierId" />
+          <label class="field honey-field">
+            <span>Website</span>
+            <input name="website" tabindex="-1" autocomplete="off" />
+          </label>
+          <label class="field">
+            <span>Work email</span>
+            <input name="email" type="email" placeholder="buyer@company.com" required />
+          </label>
+          <label class="field">
+            <span>Annual volume</span>
+            <input name="annual_volume" type="text" placeholder="10,000 units" />
+          </label>
+          <label class="field">
+            <span>Need</span>
+            <textarea name="need" rows="4" placeholder="Share specs, target origin, documentation needs, and timeline." required></textarea>
+          </label>
+          <button class="primary-button full-width" type="submit">Send RFQ request</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

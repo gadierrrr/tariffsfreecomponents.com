@@ -1,0 +1,67 @@
+{
+  "name": "TariffsFreeComponents Supplier Database",
+  "version": "0.1.0",
+  "last_reviewed": "2026-07-07",
+  "primary_key": "supplier_id",
+  "status_policy": {
+    "Unverified candidate": "Real supplier candidate identified from public sources; no origin or tariff advantage has been confirmed.",
+    "Documented candidate": "Public source suggests relevant manufacturing footprint or documentation readiness; still requires supplier-provided records.",
+    "Verified": "Reserved for suppliers that provide product-level origin, HTS, and supporting documents reviewed by the marketplace or a qualified partner."
+  },
+  "columns": [
+    "supplier_id",
+    "company_name",
+    "website",
+    "source_url",
+    "source_type",
+    "category",
+    "subcategory",
+    "target_components",
+    "likely_hts_families",
+    "country_focus",
+    "manufacturing_footprint",
+    "tariff_advantage_hypothesis",
+    "verification_status",
+    "evidence_needed",
+    "buyer_fit",
+    "premium_fit",
+    "outreach_priority",
+    "lead_score",
+    "notes",
+    "last_reviewed",
+    "crm_status",
+    "contact_owner",
+    "next_action"
+  ],
+  "verification_required_before_badges": [
+    "supplier confirms product-level HTS classification or classification basis",
+    "supplier provides country of origin by SKU or product family",
+    "supplier provides certificate of origin or equivalent origin support when applicable",
+    "supplier confirms manufacturing location and whether substantial transformation occurs there",
+    "supplier provides relevant certifications such as ISO, UL, IATF, AS9100, RoHS, or REACH when applicable"
+  ],
+  "recommended_badges": [
+    "Origin documented",
+    "US manufacturing candidate",
+    "USMCA candidate",
+    "North America source",
+    "Alternative source",
+    "Broker reviewed"
+  ],
+  "crm_statuses": [
+    "not_contacted",
+    "contacted",
+    "replied",
+    "qualified",
+    "listed",
+    "premium",
+    "disqualified"
+  ],
+  "do_not_claim_without_review": [
+    "tariff free",
+    "duty free",
+    "USMCA eligible",
+    "Made in USA",
+    "Section 301 exempt"
+  ]
+}

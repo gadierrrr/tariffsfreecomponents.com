@@ -1,0 +1,16 @@
+{
+  "name": "TariffsFreeComponents.com",
+  "short_name": "TFC",
+  "description": "Tariff-advantaged component sourcing marketplace.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f4ef",
+  "theme_color": "#17201f",
+  "icons": [
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml"
+    }
+  ]
+}
